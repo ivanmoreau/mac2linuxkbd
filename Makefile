@@ -11,7 +11,6 @@ cleanArtifacts:
 
 install:
 	@echo "Installing..."
-	@make build
 	@cp mac2linuxkbd /usr/local/bin/mac2linuxkbd
 	@mkdir -p /etc/interception/
 	@cp udevmon.yaml /etc/interception/udevmon.yaml
@@ -62,7 +61,8 @@ InterceptionToolsII:
 	@cp interception-tools/build/intercept /usr/local/bin/intercept && \
 	 cp interception-tools/build/udevmon /usr/local/bin/udevmon && \
 	 cp interception-tools/build/mux /usr/local/bin/mux && \
-	 cp interception-tools/build/uinput /usr/local/bin/uinput
+	 cp interception-tools/build/uinput /usr/local/bin/uinput && \
+	 ln -s /usr/local/bin/udevmon /usr/bin/udevmon
 	@echo "Done installing."
 	@echo "Installing Systemd service..."
 	@cp interception-tools/udevmon.service /etc/systemd/system/udevmon.service

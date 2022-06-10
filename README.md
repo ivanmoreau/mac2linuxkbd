@@ -30,4 +30,5 @@ sudo make stop -- Stop service.
 sudo make uninstall
 sudo make InterceptionToolsII -- Download, build and install Interception Tools.
 sudo make InterceptionToolsUU -- Uninstall Interception Tools.
+sudo systemctl status udevmon
 ```
