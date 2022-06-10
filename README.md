@@ -5,7 +5,7 @@ Key rebindings to match a macOS style on Linux.
 This program uses Interception Tools to capture the system key events and 
 replace them if there is a pattern to do so. Becase of the nature of the
 inner workings of Interception Tools, this software can work on X11,
-Wayland and TTY. *HOWEVER* this sofware just works with X11 because
+Wayland and TTY. *HOWEVER* this sofware only works with X11 because
 we need to get the current application information. This is just one
 function that can be changed to support Wayland.
 
