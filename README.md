@@ -9,7 +9,7 @@ Wayland and TTY. *HOWEVER* this sofware only works with X11 because
 we need to get the current application information. This is just one
 function that can be changed to support Wayland.
 
-Bindings can be changed in Configs.hs. The current ones are design
+Bindings can be changed in Configs.hs. The current ones are designed
 to work with ISO ES keyboards.
 
 In some keyboards two keys are incorrectly swapped by default. While this can be fixed using this tool, I prefer to use this possible solutions:
