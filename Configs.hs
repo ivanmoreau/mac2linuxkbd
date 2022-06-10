@@ -53,6 +53,7 @@ key_lshift = Keycode 42
 key_rshift = Keycode 54
 key_e = Keycode 18
 key_a = Keycode 30
+key_s = Keycode 31
 key_n = Keycode 49
 key_ñ = Keycode 39
 key_c = Keycode 46
