@@ -1,0 +1,4 @@
+- JOB: intercept -g $DEVNODE | mac2linuxkbd | uinput -d $DEVNODE
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_LEFTALT, KEY_SEMICOLON]
