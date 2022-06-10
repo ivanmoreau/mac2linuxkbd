@@ -355,6 +355,18 @@ rules = [
         left_control = True
       }
     }, apps = General
+  }, Rule { -- [General] LCmd + s -> LCtrl + s
+    from = Key {
+      keycode = key_s,
+      modifiers = empty_mods {
+        left_command = True
+      }
+    }, to = Key {
+      keycode = key_s,
+      modifiers = empty_mods {
+        left_control = True
+      }
+    }, apps = General
   }]
 
 
