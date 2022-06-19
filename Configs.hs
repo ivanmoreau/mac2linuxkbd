@@ -211,7 +211,7 @@ rules = [
         left_control = True,
         left_shift = True
       }
-    }, apps = Apps ["org.wezfurlog.wezterm", "gnome-terminal-server"]
+    }, apps = Apps ["org.wezfurlog.wezterm", "gnome-terminal-server", "Alacritty"]
   }, Rule { -- [Terminals] LCmd + v -> LCtrl + LShift + v
     from = Key {
       keycode = key_v,
@@ -224,7 +224,7 @@ rules = [
         left_control = True,
         left_shift = True
       }
-    }, apps = Apps ["org.wezfurlog.wezterm", "gnome-terminal-server"]
+    }, apps = Apps ["org.wezfurlog.wezterm", "gnome-terminal-server", "Alacritty"]
   }, Rule { -- [Chrome] LCmd + n -> LCtrl + n
     from = Key {
       keycode = key_n,
