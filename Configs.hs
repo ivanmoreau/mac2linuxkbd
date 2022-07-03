@@ -11,6 +11,7 @@ import Data.Binary (Word16)
 import System.Process (CreateProcess(std_in,std_out,std_err), createProcess, proc, shell, StdStream (UseHandle, CreatePipe))
 import System.IO (hGetContents, hPutStrLn)
 import System.Environment (setEnv)
+import X11
 
 timeval_size_in_bytes :: Int
 timeval_size_in_bytes = (64 + 64) `div` 8
@@ -375,24 +376,11 @@ rules = [
 -- This is system dependent. For now, it works on X11.
 -- HOWEVER, implementing get_app_name it's enough to
 -- get this working on every Linux system.
-
-get_username :: IO String
-get_username = do
-  let who = shell "who"
-  (_, Just out, _, _) <- createProcess who { std_out = CreatePipe  }
-  let s2 = proc "grep" ["-m", "1", "(:0)"]
-  (_, Just out2, _, _) <- createProcess s2 
-    { std_in = UseHandle out, std_out = CreatePipe }
-  let s3 = proc "awk" ["{printf \"%s\", $1;}"]
-  (_, Just out3, _, _) <- createProcess s3 
-    { std_in = UseHandle out2, std_out = CreatePipe  }
-  hGetContents out3
+--
+-- In a previous version, I used "who" to get the
+-- username of the current user. But, out of simplicity,
+-- I decided to make it hardcoded. All the configs are
+-- hardcoded anyway.
 
 get_app_name :: IO String
-get_app_name = do
-  uname <- get_username
-  -- Set environment variable for display :0
-  setEnv "DISPLAY" $ ":0"
-  let su = proc "sudo" ["su", uname, "-c", "xprop -id `xprop -root 32x '\\t$0' _NET_ACTIVE_WINDOW | cut -f 2` WM_CLASS | sed 's/.*= //' | sed 's/\\\"\\,/\\\"/' | cut -d ' ' -f1 | sed 's/\"//g' | tr -d '\\n' "]
-  (_, Just out, _, _) <- createProcess su { std_out = CreatePipe  }
-  hGetContents out
+get_app_name = getName

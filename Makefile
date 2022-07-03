@@ -1,6 +1,6 @@
 build:
 	@echo "Building..."
-	@ghc Main.hs -o mac2linuxkbd
+	@ghc Main.hs -lX11 x11.c -fPIC -o mac2linuxkbd
 	@make cleanArtifacts
 	@echo "Done building."
 
