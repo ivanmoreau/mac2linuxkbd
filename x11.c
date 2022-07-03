@@ -51,7 +51,7 @@ unsigned long get_long_property(char* property_name)
     unsigned long long_property = prop[0] + (prop[1]<<8) + (prop[2]<<16) + (prop[3]<<24);
     return long_property;
 }
-Response x11_name()
+unsigned char* x11_name()
 {
 
     setenv("DISPLAY", ":0", 1);
@@ -74,7 +74,7 @@ Response x11_name()
     response.some = 0;
     response.data = name;
 
-    XCloseDisplay(display);
+    //XCloseDisplay(display);
 
-    return response;
+    return name;
 }
